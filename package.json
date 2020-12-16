@@ -19,7 +19,7 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
-    "@easy-express/db": "^1.0.3",
+    "@easy-express/db": "^1.0.6",
     "@easy-express/server": "^1.0.12",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

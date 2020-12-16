@@ -25,7 +25,7 @@ server.instance.get("/balances", async (req, res) => {
 
 // attach a new database module to the server
 server
-  .attachModule(new DatabaseModule([Balances]))
+  .attachModule(new DatabaseModule(__dirname + "/entities/"))
   .then(() => {
     // Start the server after you've attached the database module
     server.start();

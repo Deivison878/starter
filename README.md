@@ -8,6 +8,7 @@
 
 ```sh
 npm install
+npm update
 ```
 
 ## Usage

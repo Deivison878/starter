@@ -1,5 +1,5 @@
 import { EasyExpressServer } from "@easy-express/server";
-import { DatabaseModule } from "@easy-express/db";
+import { DatabaseModule } from "@easy-express/typeorm";
 import * as dotenv from "dotenv";
 import { GraphQLModule } from "@easy-express/graphql";
 

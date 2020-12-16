@@ -1,8 +1,8 @@
 import { EasyExpressServer } from "@easy-express/server";
 import { DatabaseModule } from "@easy-express/db";
 import * as dotenv from "dotenv";
-import { getRepository } from "typeorm";
-import { Balances } from "./entities/Balances";
+import { GraphQLModule } from "@easy-express/graphql";
+
 // load env vars from .env file
 dotenv.config();
 
@@ -14,23 +14,18 @@ server.instance.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-// example of a route getting data from database using TypeORM
-server.instance.get("/balances", async (req, res) => {
-  return getRepository(Balances)
-    .find()
-    .then((result) => {
-      res.send(result);
-    });
-});
-
-// attach a new database module to the server
+// attach the modules
 server
-  .attachModule(new DatabaseModule(__dirname + "/entities/"))
+  .attachModule(new GraphQLModule(__dirname + "/graphql-modules/"))
   .then(() => {
-    // Start the server after you've attached the database module
-    server.start();
-  })
-  .catch((e) => {
-    console.error(e);
-    return e;
+    server
+      .attachModule(new DatabaseModule(__dirname + "/entities/"))
+      .then(() => {
+        // Start the server after you've attached the two module
+        server.start();
+      })
+      .catch((e) => {
+        console.error(e);
+        return e;
+      });
   });

@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "@easy-express/graphql": "^1.0.4",
-    "@easy-express/server": "^1.0.12",
-    "@easy-express/typeorm": "^1.0.9",
+    "@easy-express/server": "^1.0.14",
+    "@easy-express/typeorm": "^1.0.12",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
